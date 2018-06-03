@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/line_separator"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:minHeight="1dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/text_contacts"
+        app:layout_constraintTop_toBottomOf="@+id/text_Creatoremail"
+        app:layout_constraintVertical_bias="0.7" />
+
+    <ImageView
+        android:id="@+id/image_meftlogo"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginEnd="16dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/meft_logo"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@+id/image_istlogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/image_istlogo"
+        app:srcCompat="@drawable/logo_meft_hor" />
+
+    <ImageView
+        android:id="@+id/image_istlogo"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/ist_logo"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toTopOf="@+id/text_AppName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread"
+        app:srcCompat="@drawable/ist_a_pos" />
+
+    <TextView
+        android:id="@+id/text_AppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:shadowColor="@color/colorAccent"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        android:text="@string/app_name"
+        android:textAllCaps="false"
+        android:textColor="@color/colorAccent"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/text_Creator"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_istlogo" />
+
+    <TextView
+        android:id="@+id/text_Creator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="8dp"
+        android:shadowColor="@color/colorPrimaryDark"
+        android:shadowDx="-2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        android:text="@string/by_creator"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/text_Creatoremail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_AppName" />
+
+    <TextView
+        android:id="@+id/text_contacts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="50dp"
+        android:outlineProvider="bounds"
+        android:text="@string/contacts"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/text_AO"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_Creatoremail" />
+
+    <TextView
+        android:id="@+id/text_Creatoremail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="8dp"
+        android:shadowColor="@color/colorPrimaryDark"
+        android:shadowDx="-2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        android:text="@string/creator_email"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/text_contacts"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_Creator" />
+
+    <TextView
+        android:id="@+id/text_MIO"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/mobility_international_office"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_TO"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_AO" />
+
+    <TextView
+        android:id="@+id/text_TO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/taguspark_office"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_MIO" />
+
+    <TextView
+        android:id="@+id/text_MIOemail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/mio_email"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/text_MIO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_MIOphone" />
+
+    <TextView
+        android:id="@+id/text_AOphone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/ao_phone"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_AOemail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/text_AO" />
+
+    <TextView
+        android:id="@+id/text_TOemail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/tagus_email"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/text_TO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_TOphone" />
+
+    <TextView
+        android:id="@+id/text_TOphone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/tagus_phone"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_TOemail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/text_TO" />
+
+    <TextView
+        android:id="@+id/text_MIOphone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/mio_phone"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_MIOemail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/text_MIO" />
+
+    <TextView
+        android:id="@+id/text_AOemail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/ao_email"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/text_AO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_AOphone" />
+
+    <TextView
+        android:id="@+id/text_AO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/academic_office"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_MIO"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_contacts" />
+
+</android.support.constraint.ConstraintLayout>

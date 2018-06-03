@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--android:orientation="vertical"-->
+    <!--android:paddingLeft="20dp"-->
+    <!--android:paddingRight="20dp"-->
+
+    <TextView
+        android:id="@+id/text_mon_fri3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/monday_friday"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_weekend3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_TagusparkOffice" />
+
+    <TextView
+        android:id="@+id/text_mon_fri_hour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="@string/schedule_mon_fri"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text_mon_fri"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/text_mon_fri_hour3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="@string/schedule_taguspark"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text_mon_fri3"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/text_tue_thur_hour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="19dp"
+        android:text="@string/schedule_mio_tue_thur"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/text_tue_thur"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/text_tue_thur" />
+
+    <TextView
+        android:id="@+id/text_weekend3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/weekend"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_mon_fri3" />
+
+    <TextView
+        android:id="@+id/text_closed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="@string/closed"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text_weekend"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/text_mon_fri2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/monday_friday"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_tue_thur"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_MIOffice" />
+
+    <TextView
+        android:id="@+id/text_tue_thur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/tuesday_thursday"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_weekend2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_mon_fri2" />
+
+    <TextView
+        android:id="@+id/text_weekend2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/weekend"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_TagusparkOffice"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_tue_thur" />
+
+    <TextView
+        android:id="@+id/text_mon_fri_hour2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="@string/schedule_mio_mon_wed_fri"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text_mon_fri2"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/text_AcademicOffice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/academic_office"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/text_mon_fri"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread" />
+
+    <TextView
+        android:id="@+id/text_wed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/wednesday"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_weekend"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_mon_fri" />
+
+    <TextView
+        android:id="@+id/text_mon_fri"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/monday_friday"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_wed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_AcademicOffice" />
+
+    <TextView
+        android:id="@+id/text_weekend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/weekend"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_MIOffice"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_wed" />
+
+    <TextView
+        android:id="@+id/text_wed_hour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="@string/schedule_wed"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text_wed"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/text_closed3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="@string/closed"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text_weekend3"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/text_closed2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="@string/closed"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text_weekend2"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/text_MIOffice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/mobility_international_office"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/text_mon_fri2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_weekend" />
+
+    <TextView
+        android:id="@+id/text_TagusparkOffice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/taguspark_office"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/text_mon_fri3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_weekend2" />
+
+</android.support.constraint.ConstraintLayout>
