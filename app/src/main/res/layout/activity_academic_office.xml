@@ -134,7 +134,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:text="@string/est_waiting_time_value"
-        android:textSize="24sp"
+        android:textSize="27sp"
         android:textStyle="italic"
         app:layout_constraintBaseline_toBaselineOf="@+id/text_EstWaiting"
         app:layout_constraintEnd_toEndOf="parent" />
