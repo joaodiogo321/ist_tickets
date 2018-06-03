@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.joaobravo.isttickets">
 
-    <!--Request Internet Permition-->
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <!--Request Internet Permission-->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,10 +12,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppThemeNoActionBar" >
+        android:theme="@style/AppThemeNoActionBar"
+        android:fullBackupContent="true"
+        tools:ignore="GoogleAppIndexingWarning">
 
         <activity android:name=".MainActivity"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,7 +27,7 @@
 
         <activity android:name=".AcademicOfficeActivity"
             android:label="@string/academic_office"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
