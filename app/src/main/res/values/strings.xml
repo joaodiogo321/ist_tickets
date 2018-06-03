@@ -22,10 +22,10 @@
     <string name="by_creator">by João Bravo</string>
     <string name="contacts"><u>Contacts:</u></string>
     <string name="creator_email">joaofbravo@tecnico.ulisboa.pt</string>
-    <string name="mio_phone">+351 218 417 362</string>
-    <string name="mio_email">nmci@tecnico.ulisboa.pt</string>
     <string name="ao_phone">+351 218 417 222</string>
     <string name="ao_email">graduacao@tecnico.ulisboa.pt</string>
+    <string name="mio_phone">+351 218 417 362</string>
+    <string name="mio_email">nmci@tecnico.ulisboa.pt</string>
     <string name="tagus_phone">+351 210 407 076</string>
     <string name="tagus_email">academicatagus@tecnico.ulisboa.pt</string>
 
@@ -43,4 +43,9 @@
 
     <string name="attention_3tt">Attention: 3 ticket tolerance</string>
     <string name="schedule">Schedule</string>
+
+    <string name="url_base">https://fenix.tecnico.ulisboa.pt/api/ticketing/services/</string>
+    <string name="url_end_ao">1/queues/</string>
+    <string name="url_end_mio">2/queues/</string>
+    <string name="url_end_tagus">4/queues/</string>
 </resources>
