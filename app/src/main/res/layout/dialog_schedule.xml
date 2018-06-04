@@ -15,7 +15,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:text="@string/monday_friday"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/text_wed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -28,7 +28,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:text="@string/wednesday"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/text_weekend"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_mon_fri" />
@@ -41,7 +41,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:text="@string/weekend"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_wed" />
@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:text="@string/schedule_mon_fri"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/text_mon_fri"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:text="@string/schedule_wed"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/text_wed"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -72,7 +72,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:text="@string/closed"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/text_weekend"
         app:layout_constraintEnd_toEndOf="parent" />
 

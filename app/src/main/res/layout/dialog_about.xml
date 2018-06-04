@@ -8,13 +8,13 @@
         android:id="@+id/line_separator"
         android:layout_width="0dp"
         android:layout_height="1dp"
-        android:minHeight="1dp"
-        android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
         android:background="@android:color/darker_gray"
+        android:minHeight="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/text_contacts"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/text_contacts"
         app:layout_constraintTop_toBottomOf="@+id/text_Creatoremail"
         app:layout_constraintVertical_bias="0.7" />
 
@@ -122,25 +122,24 @@
         android:layout_width="wrap_content"
         android:layout_height="19dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:text="@string/mobility_international_office"
         android:textSize="13sp"
-        app:layout_constraintBottom_toTopOf="@+id/text_TO"
+        app:layout_constraintBottom_toTopOf="@+id/text_MIOphone"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_AO" />
+        app:layout_constraintTop_toBottomOf="@+id/text_AOemail" />
 
     <TextView
         android:id="@+id/text_TO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:text="@string/taguspark_office"
         android:textSize="13sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/text_TOphone"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_MIO" />
+        app:layout_constraintTop_toBottomOf="@+id/text_MIOemail" />
 
     <TextView
         android:id="@+id/text_MIOemail"
@@ -149,7 +148,7 @@
         android:layout_marginEnd="16dp"
         android:text="@string/mio_email"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/text_MIO"
+        app:layout_constraintBottom_toTopOf="@+id/text_TO"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_MIOphone" />
 
@@ -162,16 +161,17 @@
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/text_AOemail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/text_AO" />
+        app:layout_constraintTop_toBottomOf="@+id/text_AO" />
 
     <TextView
         android:id="@+id/text_TOemail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
         android:layout_marginEnd="16dp"
         android:text="@string/tagus_email"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/text_TO"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_TOphone" />
 
@@ -184,7 +184,7 @@
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/text_TOemail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/text_TO" />
+        app:layout_constraintTop_toBottomOf="@+id/text_TO" />
 
     <TextView
         android:id="@+id/text_MIOphone"
@@ -195,7 +195,7 @@
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/text_MIOemail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/text_MIO" />
+        app:layout_constraintTop_toBottomOf="@+id/text_MIO" />
 
     <TextView
         android:id="@+id/text_AOemail"
@@ -204,7 +204,7 @@
         android:layout_marginEnd="16dp"
         android:text="@string/ao_email"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/text_AO"
+        app:layout_constraintBottom_toTopOf="@+id/text_MIO"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_AOphone" />
 
@@ -216,7 +216,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/academic_office"
         android:textSize="13sp"
-        app:layout_constraintBottom_toTopOf="@+id/text_MIO"
+        app:layout_constraintBottom_toTopOf="@+id/text_AOphone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_contacts" />
 

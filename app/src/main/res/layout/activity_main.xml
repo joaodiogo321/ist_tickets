@@ -48,7 +48,7 @@
         android:onClick="showAboutDialogOnClick"
         android:text="@string/about"
         android:textAllCaps="false"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -61,7 +61,7 @@
         android:onClick="showSchedulesDialogOnClick"
         android:text="@string/schedules"
         android:textAllCaps="false"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/button_About"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -74,7 +74,7 @@
         android:onClick="onMIOClick"
         android:text="@string/mobility_international_office"
         android:textAllCaps="false"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/button_TO"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,28 +91,26 @@
         android:onClick="onAOClick"
         android:text="@string/academic_office"
         android:textAllCaps="false"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/button_MIO"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_AppName"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="spread" />
 
     <Button
         android:id="@+id/button_TO"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginBottom="24dp"
         android:onClick="onTOClick"
         android:text="@string/taguspark_office"
         android:textAllCaps="false"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/button_Schedules"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_MIO" />
 

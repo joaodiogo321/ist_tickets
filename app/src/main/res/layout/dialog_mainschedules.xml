@@ -15,7 +15,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:text="@string/monday_friday"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/text_weekend3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_TagusparkOffice" />
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:text="@string/schedule_mon_fri"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/text_mon_fri"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:text="@string/schedule_taguspark"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/text_mon_fri3"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -44,9 +44,9 @@
         android:id="@+id/text_tue_thur_hour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="19dp"
+        android:layout_marginEnd="20dp"
         android:text="@string/schedule_mio_tue_thur"
-        android:textSize="14sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/text_tue_thur"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/text_tue_thur" />
@@ -59,7 +59,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:text="@string/weekend"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_mon_fri3" />
@@ -70,7 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:text="@string/closed"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/text_weekend"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -81,7 +81,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:text="@string/monday_friday"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/text_tue_thur"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_MIOffice" />
@@ -93,7 +93,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="10dp"
         android:text="@string/tuesday_thursday"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/text_weekend2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_mon_fri2" />
@@ -105,7 +105,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="10dp"
         android:text="@string/weekend"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/text_TagusparkOffice"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_tue_thur" />
@@ -116,7 +116,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:text="@string/schedule_mio_mon_wed_fri"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/text_mon_fri2"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -141,7 +141,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:text="@string/wednesday"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/text_weekend"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_mon_fri" />
@@ -153,7 +153,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:text="@string/monday_friday"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/text_wed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_AcademicOffice" />
@@ -165,7 +165,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:text="@string/weekend"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/text_MIOffice"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_wed" />
@@ -176,7 +176,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:text="@string/schedule_wed"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/text_wed"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -186,7 +186,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:text="@string/closed"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/text_weekend3"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -196,7 +196,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:text="@string/closed"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/text_weekend2"
         app:layout_constraintEnd_toEndOf="parent" />
 

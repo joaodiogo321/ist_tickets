@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,7 +29,16 @@ public class AcademicOfficeActivity extends AppCompatActivity {
 
     private static Boolean DEBUG = false;
     private Handler mHandler;
-    private int queue_pk;
+    @SuppressWarnings("FieldCanBeLocal")
+    private static int taskDelay = 5000; // milliseconds
+    private int queue_item;
+
+    // Views to update
+    public TextView text_QueueName;
+    public TextView text_LineLetter;
+    public TextView text_TicketNumber;
+    public TextView text_PeopleNumber;
+    public TextView text_EstWaitingValue;
 
     /**
      * Debugger method
@@ -45,7 +55,7 @@ public class AcademicOfficeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_academic_office);
 
-        // Set toolbar as action bar
+        // Set toolbar as ActionBar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -56,11 +66,20 @@ public class AcademicOfficeActivity extends AppCompatActivity {
         if (actionBar != null)
             actionBar.setDisplayHomeAsUpEnabled(true);
 
+        // Find Views to update
+        text_QueueName = findViewById(R.id.text_QueueName);
+        text_LineLetter = findViewById(R.id.text_LineLetter);
+        text_TicketNumber = findViewById(R.id.text_TicketNumber);
+        text_PeopleNumber = findViewById(R.id.text_PeopleNumber);
+        text_EstWaitingValue = findViewById(R.id.text_EstWaitingValue);
+
         // Update UI even before onResume()
-        queue_pk = 1;
+        queue_item = 0;
         new GetJSONFromURLTask().execute(getString(R.string.url_base) + getString(R.string.url_end_ao));
 
         mHandler = new Handler();
+
+        if (DEBUG) LogcatDebug("SUCCESS",1);
     }
 
     @Override
@@ -94,15 +113,27 @@ public class AcademicOfficeActivity extends AppCompatActivity {
         // handled, if a parent activity is specified in AndroidManifest.xml.
         switch (item.getItemId()) {
             case R.id.item_general_service:
-                queue_pk = 1;
+                text_QueueName.setText(getString(R.string.general_service));
+                text_LineLetter.setText(getString(R.string.a_letter));
+                queue_item = 0;
+                // Update UI even before repeating task
+                new GetJSONFromURLTask().execute(getString(R.string.url_base) + getString(R.string.url_end_ao));
                 return true;
 
             case R.id.item_priority_attendance:
-                queue_pk = 3;
+                text_QueueName.setText(getString(R.string.priority_attendance));
+                text_LineLetter.setText(getString(R.string.b_letter));
+                queue_item = 1;
+                // Update UI even before repeating task
+                new GetJSONFromURLTask().execute(getString(R.string.url_base) + getString(R.string.url_end_ao));
                 return true;
 
             case R.id.item_documents:
-                queue_pk = 4;
+                text_QueueName.setText(getString(R.string.documents));
+                text_LineLetter.setText(getString(R.string.c_letter));
+                queue_item = 2;
+                // Update UI even before repeating task
+                new GetJSONFromURLTask().execute(getString(R.string.url_base) + getString(R.string.url_end_ao));
                 return true;
 
             default:
@@ -141,14 +172,13 @@ public class AcademicOfficeActivity extends AppCompatActivity {
                 while ((line = reader.readLine()) != null) {
                     buffer.append(line).append("\n");
 
-                    // if (DEBUG) Log.v("Response: ", "> " + line);
+                    if (DEBUG) Log.v("Response: ", "> " + line);
                 }
 
                 return buffer.toString();
 
             } catch (IOException e) {
-                if (DEBUG) LogcatDebug("ERROR",2);
-                e.printStackTrace();
+                LogcatDebug("ERROR",2);
             } finally {
                 if (connection != null) {
                     connection.disconnect();
@@ -158,8 +188,7 @@ public class AcademicOfficeActivity extends AppCompatActivity {
                         reader.close();
                     }
                 } catch (IOException e) {
-                    if (DEBUG) LogcatDebug("ERROR",2);
-                    e.printStackTrace();
+                    LogcatDebug("ERROR",2);
                 }
             }
 
@@ -177,32 +206,23 @@ public class AcademicOfficeActivity extends AppCompatActivity {
             if (response == null) {
                 if (DEBUG) LogcatDebug("ERROR", 2);
             } else {
-                JSONArray jArray = null;
-
                 try {
-                    jArray = new JSONArray(response);
+                    JSONObject jObject = (new JSONArray(response)).getJSONObject(queue_item);
+
+                    // Pulling items from the array
+                    int currentTicket = jObject.getJSONObject("current_called_ticket").getInt("number");
+                    text_TicketNumber.setText(String.valueOf(currentTicket));
+
+                    int peopleInLine = jObject.getInt("number_of_tickets_to_call");
+                    text_PeopleNumber.setText(String.valueOf(peopleInLine));
+
+                    int avgWaitTime = jObject.getInt("average_wait_time");
+                    text_EstWaitingValue.setText(String.valueOf(avgWaitTime/60));
+
+                    if (DEBUG) LogcatDebug("SUCCESS",2);
+
                 } catch (JSONException e) {
-                    if (DEBUG) LogcatDebug("ERROR",2);
-                    e.printStackTrace();
-                }
-
-                assert jArray != null;
-                for (int i = 0; i < jArray.length(); i++) {
-                    try {
-                        JSONObject jObject = jArray.getJSONObject(i);
-
-                        // Pulling items from the array
-//                        String jName = "pk";
-//                        String jValue = jObject.getString(jName);
-//                        text.append("\n"+jValue);
-//                        text.append("\n" + jObject.toString(8));
-
-                        if (DEBUG) LogcatDebug("SUCCESS"+i,2);
-
-                    } catch (JSONException e) {
-                        if (DEBUG) LogcatDebug("ERROR"+i,2);
-                        e.printStackTrace();
-                    }
+                    LogcatDebug("ERROR",2);
                 }
             }
         }
@@ -215,7 +235,7 @@ public class AcademicOfficeActivity extends AppCompatActivity {
         @Override
         public void run() {
             new GetJSONFromURLTask().execute(getString(R.string.url_base) + getString(R.string.url_end_ao));
-            mHandler.postDelayed(mStatusChecker, 4000); // milliseconds
+            mHandler.postDelayed(mStatusChecker, taskDelay);
         }
     };
 
