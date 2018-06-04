@@ -39,9 +39,6 @@
     <string name="a_letter">A</string>
     <string name="b_letter">B</string>
     <string name="c_letter">C</string>
-    <string name="current_ticket_value">000</string>
-    <string name="people_in_line_value">00</string>
-    <string name="est_waiting_time_value">00</string>
     <string name="min">min</string>
 
     <string name="attention_3tt">Attention: 3 ticket tolerance</string>

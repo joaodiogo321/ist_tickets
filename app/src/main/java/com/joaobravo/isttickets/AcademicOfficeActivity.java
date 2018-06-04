@@ -30,8 +30,8 @@ public class AcademicOfficeActivity extends AppCompatActivity {
     private static Boolean DEBUG = false;
     private Handler mHandler;
     @SuppressWarnings("FieldCanBeLocal")
-    private static int taskDelay = 5000; // milliseconds
-    private int queue_item;
+    private static int taskDelay = 5000; // in milliseconds
+    private int queueItem; // Selects queue
 
     // Views to update
     public TextView text_QueueName;
@@ -47,7 +47,8 @@ public class AcademicOfficeActivity extends AppCompatActivity {
     private void LogcatDebug(String tag, int trace_levels_up) {
         StackTraceElement trace = new Throwable().fillInStackTrace().getStackTrace()[trace_levels_up];
         String filename = trace.getFileName();
-        Log.d(tag, "[ " + filename.substring(0, filename.length() - 5) + " : " + trace.getMethodName() + " : line " + trace.getLineNumber() + " ]");
+        Log.d(tag, "[ " + filename.substring(0, filename.length() - 5) + " : "
+                + trace.getMethodName() + " : line " + trace.getLineNumber() + " ]");
     }
 
     @Override
@@ -74,7 +75,7 @@ public class AcademicOfficeActivity extends AppCompatActivity {
         text_EstWaitingValue = findViewById(R.id.text_EstWaitingValue);
 
         // Update UI even before onResume()
-        queue_item = 0;
+        queueItem = 0;
         new GetJSONFromURLTask().execute(getString(R.string.url_base) + getString(R.string.url_end_ao));
 
         mHandler = new Handler();
@@ -114,24 +115,21 @@ public class AcademicOfficeActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.item_general_service:
                 text_QueueName.setText(getString(R.string.general_service));
-                text_LineLetter.setText(getString(R.string.a_letter));
-                queue_item = 0;
+                queueItem = 0;
                 // Update UI even before repeating task
                 new GetJSONFromURLTask().execute(getString(R.string.url_base) + getString(R.string.url_end_ao));
                 return true;
 
             case R.id.item_priority_attendance:
                 text_QueueName.setText(getString(R.string.priority_attendance));
-                text_LineLetter.setText(getString(R.string.b_letter));
-                queue_item = 1;
+                queueItem = 1;
                 // Update UI even before repeating task
                 new GetJSONFromURLTask().execute(getString(R.string.url_base) + getString(R.string.url_end_ao));
                 return true;
 
             case R.id.item_documents:
                 text_QueueName.setText(getString(R.string.documents));
-                text_LineLetter.setText(getString(R.string.c_letter));
-                queue_item = 2;
+                queueItem = 2;
                 // Update UI even before repeating task
                 new GetJSONFromURLTask().execute(getString(R.string.url_base) + getString(R.string.url_end_ao));
                 return true;
@@ -197,7 +195,8 @@ public class AcademicOfficeActivity extends AppCompatActivity {
         }
 
         // Executed on main thread. Has access to UI
-        // Can be modified to support other web APIs !!
+        // Can be modified to support other web APIs!!
+        @SuppressLint("SetTextI18n")
         @Override
         protected void onPostExecute(String response) {
             super.onPostExecute(response);
@@ -207,11 +206,20 @@ public class AcademicOfficeActivity extends AppCompatActivity {
                 if (DEBUG) LogcatDebug("ERROR", 2);
             } else {
                 try {
-                    JSONObject jObject = (new JSONArray(response)).getJSONObject(queue_item);
+                    JSONObject jObject = (new JSONArray(response)).getJSONObject(queueItem);
+
+                    String queueLetter = jObject.getString("queue_short_name");
+                    text_LineLetter.setText(queueLetter);
 
                     // Pulling items from the array
-                    int currentTicket = jObject.getJSONObject("current_called_ticket").getInt("number");
-                    text_TicketNumber.setText(String.valueOf(currentTicket));
+                    try {
+                        JSONObject currentPerson = jObject.getJSONObject("current_called_ticket");
+                        int currentTicket = currentPerson.getInt("number");
+                        text_TicketNumber.setText(String.valueOf(currentTicket));
+                    } catch (JSONException e) {
+                        text_TicketNumber.setText("None");
+                        LogcatDebug("ERROR", 2);
+                    }
 
                     int peopleInLine = jObject.getInt("number_of_tickets_to_call");
                     text_PeopleNumber.setText(String.valueOf(peopleInLine));

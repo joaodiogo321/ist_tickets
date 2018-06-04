@@ -1,5 +1,6 @@
 package com.joaobravo.isttickets;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -13,8 +14,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         // Remove notification bar
         // this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        // Remove title bar
-        // Objects.requireNonNull(getSupportActionBar()).hide();
 
         setContentView(R.layout.activity_main);
     }
@@ -46,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         // builder.setPositiveButton("OK", null);
 
         // Set custom layout
+        @SuppressLint("InflateParams")
         final View scheduleLayout = getLayoutInflater().inflate(R.layout.dialog_mainschedules, null);
         builder.setView(scheduleLayout);
 
@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         // builder.setPositiveButton("OK", null);
 
         // Set custom layout
+        @SuppressLint("InflateParams")
         final View aboutLayout = getLayoutInflater().inflate(R.layout.dialog_about, null);
         builder.setView(aboutLayout);
 
