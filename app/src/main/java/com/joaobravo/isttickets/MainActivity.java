@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                         JSONObject jObject = jArray.getJSONObject(i);
                         serviceIsIssuing[i] = jObject.getBoolean("is_issuing_tickets");
 
-                        if (DEBUG) LogcatDebug("SUCCESS"+i, 2);
+                        if (!DEBUG) LogcatDebug("SUCCESS"+i+serviceIsIssuing[i], 2);
                     }
 
                 } catch (JSONException e) {
@@ -226,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
      * Called when taps button
      */
     public void onTOClick(View view) {
-        if (serviceIsIssuing[1]) {
+        if (serviceIsIssuing[2]) {
             Intent intent = new Intent(this, TagusparkActivity.class);
             startActivity(intent);
         } else
