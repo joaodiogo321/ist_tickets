@@ -26,14 +26,14 @@ public class MainActivity extends AppCompatActivity {
 
     /** Called when taps button */
     public void onMIOClick(View view) {
-//        Intent intent = new Intent(this, MobilityInternationalActivity.class);
-//        startActivity(intent);
+        Intent intent = new Intent(this, MobilityInternationalActivity.class);
+        startActivity(intent);
     }
 
     /** Called when taps button */
     public void onTOClick(View view) {
-//        Intent intent = new Intent(this, TagusparkActivity.class);
-//        startActivity(intent);
+        Intent intent = new Intent(this, TagusparkActivity.class);
+        startActivity(intent);
     }
 
     /** Called when taps button */

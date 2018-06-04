@@ -25,9 +25,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class AcademicOfficeActivity extends AppCompatActivity {
+public class TagusparkActivity extends AppCompatActivity {
 
-    private static Boolean DEBUG = false;
+     private static Boolean DEBUG = false;
     private Handler mHandler;
     @SuppressWarnings("FieldCanBeLocal")
     private static int taskDelay = 5000; // in milliseconds
@@ -56,7 +56,7 @@ public class AcademicOfficeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_academic_office);
+        setContentView(R.layout.activity_taguspark);
 
         // Set toolbar as ActionBar
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -78,7 +78,7 @@ public class AcademicOfficeActivity extends AppCompatActivity {
         text_EstWaitingValue = findViewById(R.id.text_EstWaitingValue);
 
         // Update UI even before onResume()
-        url_end = getString(R.string.url_end_ao);
+        url_end = getString(R.string.url_end_tagus);
         queueItem = 0;
         new GetJSONFromURLTask().execute(getString(R.string.url_base) + url_end);
 
@@ -108,7 +108,7 @@ public class AcademicOfficeActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_academic_office, menu);
+        getMenuInflater().inflate(R.menu.menu_taguspark, menu);
         return true;
     }
 
@@ -117,8 +117,8 @@ public class AcademicOfficeActivity extends AppCompatActivity {
         // Handle action bar item selection. Home/Up button is automatically
         // handled, if a parent activity is specified in AndroidManifest.xml.
         switch (item.getItemId()) {
-            case R.id.item_general_service:
-                text_QueueName.setText(getString(R.string.general_service));
+            case R.id.item_general_attendance:
+                text_QueueName.setText(getString(R.string.general_attendance));
                 queueItem = 0;
                 // Update UI even before repeating task
                 new GetJSONFromURLTask().execute(getString(R.string.url_base) + url_end);
@@ -127,13 +127,6 @@ public class AcademicOfficeActivity extends AppCompatActivity {
             case R.id.item_priority_attendance:
                 text_QueueName.setText(getString(R.string.priority_attendance));
                 queueItem = 1;
-                // Update UI even before repeating task
-                new GetJSONFromURLTask().execute(getString(R.string.url_base) + url_end);
-                return true;
-
-            case R.id.item_documents:
-                text_QueueName.setText(getString(R.string.documents));
-                queueItem = 2;
                 // Update UI even before repeating task
                 new GetJSONFromURLTask().execute(getString(R.string.url_base) + url_end);
                 return true;
@@ -284,7 +277,7 @@ public class AcademicOfficeActivity extends AppCompatActivity {
 
         // Set custom layout
         @SuppressLint("InflateParams")
-        final View scheduleLayout = getLayoutInflater().inflate(R.layout.dialog_schedule_academic_office, null);
+        final View scheduleLayout = getLayoutInflater().inflate(R.layout.dialog_schedule_tagus, null);
         builder.setView(scheduleLayout);
 
         // Create and show the alert dialog

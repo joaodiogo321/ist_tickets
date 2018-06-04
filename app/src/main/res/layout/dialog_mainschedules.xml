@@ -4,10 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--android:orientation="vertical"-->
-    <!--android:paddingLeft="20dp"-->
-    <!--android:paddingRight="20dp"-->
-
     <TextView
         android:id="@+id/text_mon_fri3"
         android:layout_width="wrap_content"
@@ -132,7 +128,7 @@
         app:layout_constraintBottom_toTopOf="@+id/text_mon_fri"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="spread" />
+        app:layout_constraintVertical_chainStyle="spread_inside" />
 
     <TextView
         android:id="@+id/text_wed"

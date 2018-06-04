@@ -34,11 +34,9 @@
     <string name="documents">Documents</string>
 
     <string name="current_ticket">Current Ticket:</string>
+    <string name="desk_no">Desk no:</string>
     <string name="people_in_line">People in Line:</string>
-    <string name="estimated_waiting_time">Estimated Wait Time:</string>
-    <string name="a_letter">A</string>
-    <string name="b_letter">B</string>
-    <string name="c_letter">C</string>
+    <string name="avg_waiting_time">Average Wait Time:</string>
     <string name="min">min</string>
 
     <string name="attention_3tt">Attention: 3 ticket tolerance</string>
@@ -48,4 +46,10 @@
     <string name="url_end_ao">1/queues/</string>
     <string name="url_end_mio">2/queues/</string>
     <string name="url_end_tagus">4/queues/</string>
+    <string name="general_attendance">General Attendance</string>
+    <string name="outside_europe_athens">Outside Europe | Athens</string>
+    <string name="europe_erasmus_is_link">Europe | Erasmus | IS:LINK</string>
+    <string name="icm_innoenergy_vulcanus">ICM | InnoEnergy | Vulcanus</string>
+    <string name="iaeste">IAESTE</string>
+    <string name="other_issues">Other Issues (VISA, etc)</string>
 </resources>

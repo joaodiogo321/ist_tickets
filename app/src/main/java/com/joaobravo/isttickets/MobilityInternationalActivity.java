@@ -25,7 +25,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class AcademicOfficeActivity extends AppCompatActivity {
+public class MobilityInternationalActivity extends AppCompatActivity {
 
     private static Boolean DEBUG = false;
     private Handler mHandler;
@@ -56,7 +56,7 @@ public class AcademicOfficeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_academic_office);
+        setContentView(R.layout.activity_mobility_international);
 
         // Set toolbar as ActionBar
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -78,7 +78,7 @@ public class AcademicOfficeActivity extends AppCompatActivity {
         text_EstWaitingValue = findViewById(R.id.text_EstWaitingValue);
 
         // Update UI even before onResume()
-        url_end = getString(R.string.url_end_ao);
+        url_end = getString(R.string.url_end_mio);
         queueItem = 0;
         new GetJSONFromURLTask().execute(getString(R.string.url_base) + url_end);
 
@@ -108,7 +108,7 @@ public class AcademicOfficeActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_academic_office, menu);
+        getMenuInflater().inflate(R.menu.menu_mobility_international, menu);
         return true;
     }
 
@@ -117,23 +117,37 @@ public class AcademicOfficeActivity extends AppCompatActivity {
         // Handle action bar item selection. Home/Up button is automatically
         // handled, if a parent activity is specified in AndroidManifest.xml.
         switch (item.getItemId()) {
-            case R.id.item_general_service:
-                text_QueueName.setText(getString(R.string.general_service));
+            case R.id.item_outsideeu_athens:
+                text_QueueName.setText(getString(R.string.outside_europe_athens));
                 queueItem = 0;
                 // Update UI even before repeating task
                 new GetJSONFromURLTask().execute(getString(R.string.url_base) + url_end);
                 return true;
 
-            case R.id.item_priority_attendance:
-                text_QueueName.setText(getString(R.string.priority_attendance));
+            case R.id.item_eu_erasmus_islink:
+                text_QueueName.setText(getString(R.string.europe_erasmus_is_link));
                 queueItem = 1;
                 // Update UI even before repeating task
                 new GetJSONFromURLTask().execute(getString(R.string.url_base) + url_end);
                 return true;
 
-            case R.id.item_documents:
-                text_QueueName.setText(getString(R.string.documents));
+            case R.id.item_icm_inno_vulcanus:
+                text_QueueName.setText(getString(R.string.icm_innoenergy_vulcanus));
                 queueItem = 2;
+                // Update UI even before repeating task
+                new GetJSONFromURLTask().execute(getString(R.string.url_base) + url_end);
+                return true;
+
+            case R.id.item_iaeste:
+                text_QueueName.setText(getString(R.string.iaeste));
+                queueItem = 3;
+                // Update UI even before repeating task
+                new GetJSONFromURLTask().execute(getString(R.string.url_base) + url_end);
+                return true;
+
+            case R.id.item_other_issues:
+                text_QueueName.setText(getString(R.string.other_issues));
+                queueItem = 4;
                 // Update UI even before repeating task
                 new GetJSONFromURLTask().execute(getString(R.string.url_base) + url_end);
                 return true;
@@ -284,7 +298,7 @@ public class AcademicOfficeActivity extends AppCompatActivity {
 
         // Set custom layout
         @SuppressLint("InflateParams")
-        final View scheduleLayout = getLayoutInflater().inflate(R.layout.dialog_schedule_academic_office, null);
+        final View scheduleLayout = getLayoutInflater().inflate(R.layout.dialog_schedule_mobility_international, null);
         builder.setView(scheduleLayout);
 
         // Create and show the alert dialog
