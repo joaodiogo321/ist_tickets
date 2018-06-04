@@ -219,10 +219,11 @@ public class AcademicOfficeActivity extends AppCompatActivity {
                     try {
                         JSONObject currentPerson = jObject.getJSONObject("current_called_ticket");
                         int currentTicket = currentPerson.getInt("number");
-                        text_TicketNumber.setText(String.valueOf(currentTicket));
+                        text_TicketNumber.setText((currentTicket < 100 ? (currentTicket < 10 ? "00" : "0") : "") +
+                                currentTicket);
 
                         try {
-                            JSONObject currentDesk = jObject.getJSONObject("desk");
+                            JSONObject currentDesk = currentPerson.getJSONObject("desk");
                             int deskNumber = currentDesk.getInt("desk_number");
                             text_DeskNumber.setText(String.valueOf(deskNumber));
 
