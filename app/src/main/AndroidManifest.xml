@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppThemeNoActionBar"
-        tools:ignore="GoogleAppIndexingWarning">
+        tools:ignore="GoogleAppIndexingWarning">  <!-- remove this if publishing on Play Store -->
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
