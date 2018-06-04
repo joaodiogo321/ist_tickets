@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.View;
 
@@ -26,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private static Boolean DEBUG = true;
     private Handler mainHandler;
     @SuppressWarnings("FieldCanBeLocal")
-    private static int taskDelay = 3000; // in milliseconds
+    private static int taskDelay = 300000; // in milliseconds
     private Boolean[] serviceIsIssuing; // service flags
 
     /**
@@ -145,7 +147,6 @@ public class MainActivity extends AppCompatActivity {
                         JSONObject jObject = jArray.getJSONObject(i);
                         serviceIsIssuing[i] = jObject.getBoolean("is_issuing_tickets");
 
-//                        Log.i("caralho"+i, String.valueOf(serviceIsIssuing[i]));
                         if (DEBUG) LogcatDebug("SUCCESS"+i, 2);
                     }
 
@@ -176,42 +177,60 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * Dialog when service not issuing
+     */
+    private void showNotIssuingDialog(String serviceTitle, int serviceSchedule) {
+        // Setup the alert builder
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle(serviceTitle);
+        Spanned messageNotIssuing = Html.fromHtml(getString(R.string.notissuing_warning) +"<br>"+"<br>"+"<br>"+
+                "<b>"+getString(R.string.schedule)+"</b>");
+        builder.setMessage(messageNotIssuing);
+        builder.setPositiveButton("OK", null);
+
+        // Set custom layout
+        @SuppressLint("InflateParams")
+        final View scheduleLayout = getLayoutInflater().inflate(serviceSchedule, null);
+        builder.setView(scheduleLayout);
+
+        // Create and show the alert dialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    /**
      * Called when taps button
      */
     public void onAOClick(View view) {
-        Intent intent;
-        if (serviceIsIssuing[0])
-            intent = new Intent(this, AcademicOfficeActivity.class);
-        else
-            intent = new Intent(this, AcademicOfficeActivity.class);
-
-        startActivity(intent);
+        if (serviceIsIssuing[0]) {
+            Intent intent = new Intent(this, AcademicOfficeActivity.class);
+            startActivity(intent);
+        } else
+            showNotIssuingDialog(getString(R.string.academic_office), R.layout.dialog_schedule_academic_office);
     }
 
     /**
      * Called when taps button
      */
     public void onMIOClick(View view) {
-        Intent intent;
-        if (serviceIsIssuing[1])
-            intent = new Intent(this, MobilityInternationalActivity.class);
-        else
-            intent = new Intent(this, MobilityInternationalActivity.class);
-
-        startActivity(intent);
+        if (serviceIsIssuing[1]) {
+            Intent intent = new Intent(this, MobilityInternationalActivity.class);
+            startActivity(intent);
+        } else
+            showNotIssuingDialog(getString(R.string.mobility_international_office), R.layout
+                    .dialog_schedule_mobility_international);
     }
 
     /**
      * Called when taps button
      */
     public void onTOClick(View view) {
-        Intent intent;
-        if (serviceIsIssuing[1])
-            intent = new Intent(this, TagusparkActivity.class);
-        else
-            intent = new Intent(this, TagusparkActivity.class);
-
-        startActivity(intent);
+        if (serviceIsIssuing[1]) {
+            Intent intent = new Intent(this, TagusparkActivity.class);
+            startActivity(intent);
+        } else
+            showNotIssuingDialog(getString(R.string.taguspark_office), R.layout.dialog_schedule_tagus);
     }
 
     /**
@@ -225,8 +244,9 @@ public class MainActivity extends AppCompatActivity {
         // builder.setPositiveButton("OK", null);
 
         // Set custom layout
-        @SuppressLint("InflateParams") final View scheduleLayout = getLayoutInflater().inflate(R.layout.dialog_mainschedules, null);
-        builder.setView(scheduleLayout);
+        @SuppressLint("InflateParams")
+        final View schedulesLayout = getLayoutInflater().inflate(R.layout.dialog_mainschedules, null);
+        builder.setView(schedulesLayout);
 
         // Create and show the alert dialog
         AlertDialog dialog = builder.create();
@@ -243,7 +263,8 @@ public class MainActivity extends AppCompatActivity {
         // builder.setPositiveButton("OK", null);
 
         // Set custom layout
-        @SuppressLint("InflateParams") final View aboutLayout = getLayoutInflater().inflate(R.layout.dialog_about, null);
+        @SuppressLint("InflateParams")
+        final View aboutLayout = getLayoutInflater().inflate(R.layout.dialog_about, null);
         builder.setView(aboutLayout);
 
         // Create and show the alert dialog

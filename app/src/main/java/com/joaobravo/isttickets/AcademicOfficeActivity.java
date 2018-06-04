@@ -84,7 +84,7 @@ public class AcademicOfficeActivity extends AppCompatActivity {
 
         mHandler = new Handler();
 
-        if (DEBUG) LogcatDebug("SUCCESS", 1);
+        if (DEBUG) LogcatDebug("SUCCESS",1);
     }
 
     @Override
@@ -93,7 +93,7 @@ public class AcademicOfficeActivity extends AppCompatActivity {
         // Start updating UI when this Activity is in foreground (started/resumed)
         startRepeatingTask();
 
-        if (DEBUG) LogcatDebug("SUCCESS", 1);
+        if (DEBUG) LogcatDebug("SUCCESS",1);
     }
 
     @Override
@@ -102,7 +102,7 @@ public class AcademicOfficeActivity extends AppCompatActivity {
         // Stop updating UI when this Activity is in background
         stopRepeatingTask();
 
-        if (DEBUG) LogcatDebug("SUCCESS", 1);
+        if (DEBUG) LogcatDebug("SUCCESS",1);
     }
 
     @Override
@@ -140,7 +140,7 @@ public class AcademicOfficeActivity extends AppCompatActivity {
 
             default:
                 // Invoke superclass to handle action.
-                if (DEBUG) LogcatDebug("Switch case default", 1);
+                if (DEBUG) LogcatDebug("Switch case default",1);
                 return super.onOptionsItemSelected(item);
         }
     }
@@ -180,7 +180,7 @@ public class AcademicOfficeActivity extends AppCompatActivity {
                 return buffer.toString();
 
             } catch (IOException e) {
-                LogcatDebug("ERROR", 2);
+                LogcatDebug("ERROR",2);
             } finally {
                 if (connection != null) {
                     connection.disconnect();
@@ -190,11 +190,11 @@ public class AcademicOfficeActivity extends AppCompatActivity {
                         reader.close();
                     }
                 } catch (IOException e) {
-                    LogcatDebug("ERROR", 2);
+                    LogcatDebug("ERROR",2);
                 }
             }
 
-            if (DEBUG) LogcatDebug("Did nothing", 2);
+            if (DEBUG) LogcatDebug("Did nothing",2);
             return null;
         }
 
@@ -241,12 +241,12 @@ public class AcademicOfficeActivity extends AppCompatActivity {
                     text_PeopleNumber.setText(String.valueOf(peopleInLine));
 
                     int avgWaitTime = jObject.getInt("average_wait_time");
-                    text_EstWaitingValue.setText(String.valueOf(avgWaitTime / 60));
+                    text_EstWaitingValue.setText(String.valueOf(avgWaitTime/60));
 
-                    if (DEBUG) LogcatDebug("SUCCESS", 2);
+                    if (DEBUG) LogcatDebug("SUCCESS",2);
 
                 } catch (JSONException e) {
-                    LogcatDebug("ERROR", 2);
+                    LogcatDebug("ERROR",2);
                 }
             }
         }
