@@ -25,7 +25,7 @@ import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static Boolean DEBUG = true;
+    private static Boolean DEBUG = false;
     private Handler mainHandler;
     @SuppressWarnings("FieldCanBeLocal")
     private static int taskDelay = 300000; // in milliseconds
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
-            if (DEBUG) LogcatDebug("Did nothing", 2);
+            if (DEBUG) LogcatDebug("Did Nothing", 2);
             return null;
         }
 
@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
 
             // Parse the JSON response from URL
             if (response == null) {
-                if (DEBUG) LogcatDebug("ERROR", 2);
+                if (DEBUG) LogcatDebug("Response Null", 2);
             } else {
                 try {
                     JSONArray jArray = new JSONArray((response));
@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                         JSONObject jObject = jArray.getJSONObject(i);
                         serviceIsIssuing[i] = jObject.getBoolean("is_issuing_tickets");
 
-                        if (!DEBUG) LogcatDebug("SUCCESS"+i+serviceIsIssuing[i], 2);
+                        if (DEBUG) LogcatDebug("SUCCESS"+i+":"+serviceIsIssuing[i], 2);
                     }
 
                 } catch (JSONException e) {
@@ -197,6 +197,8 @@ public class MainActivity extends AppCompatActivity {
         // Create and show the alert dialog
         AlertDialog dialog = builder.create();
         dialog.show();
+
+        if (DEBUG) LogcatDebug("SUCCESS", 1);
     }
 
     /**

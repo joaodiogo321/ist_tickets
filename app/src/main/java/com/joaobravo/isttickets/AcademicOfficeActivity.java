@@ -194,7 +194,7 @@ public class AcademicOfficeActivity extends AppCompatActivity {
                 }
             }
 
-            if (DEBUG) LogcatDebug("Did nothing",2);
+            if (DEBUG) LogcatDebug("Did Nothing",2);
             return null;
         }
 
@@ -207,7 +207,7 @@ public class AcademicOfficeActivity extends AppCompatActivity {
 
             // Parse the JSON response from URL
             if (response == null) {
-                if (DEBUG) LogcatDebug("ERROR", 2);
+                if (DEBUG) LogcatDebug("Response Null", 2);
             } else {
                 try {
                     JSONObject jObject = (new JSONArray(response)).getJSONObject(queueItem);
@@ -244,7 +244,7 @@ public class AcademicOfficeActivity extends AppCompatActivity {
                     int avgWaitTime = jObject.getInt("average_wait_time");
                     text_EstWaitingValue.setText(String.valueOf(avgWaitTime/60));
 
-                    if (DEBUG) LogcatDebug("SUCCESS",2);
+                    if (DEBUG) LogcatDebug("SUCCESS"+queueItem, 2);
 
                 } catch (JSONException e) {
                     LogcatDebug("ERROR",2);
