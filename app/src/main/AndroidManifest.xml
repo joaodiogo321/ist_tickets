@@ -14,15 +14,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppThemeNoActionBar"
         tools:ignore="GoogleAppIndexingWarning">  <!-- remove this if publishing on Play Store -->
+
+        <!-- Main Activity -->
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
+
+            <!-- Set as Launcher Activity -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Academic Office Activity -->
         <activity
             android:name=".AcademicOfficeActivity"
             android:label="@string/academic_office"
@@ -34,6 +40,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+
+        <!-- Mobility & International Office Activity -->
         <activity android:name=".MobilityInternationalActivity"
             android:label="@string/mobility_international_office"
             android:screenOrientation="portrait"
@@ -44,6 +52,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+
+        <!-- Taguspark Office Activity -->
         <activity android:name=".TagusparkActivity"
             android:label="@string/taguspark_office"
             android:screenOrientation="portrait"

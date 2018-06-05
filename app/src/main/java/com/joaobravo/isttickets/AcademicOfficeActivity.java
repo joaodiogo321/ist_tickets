@@ -43,7 +43,7 @@ public class AcademicOfficeActivity extends AppCompatActivity {
     public TextView text_EstWaitingValue;
 
     /**
-     * Debugger method
+     * Debugger method. Writes to Logcat
      * int trace_levels_up: number of steps up the stack trace to reach class
      */
     private void LogcatDebug(String tag, int trace_levels_up) {
@@ -53,6 +53,7 @@ public class AcademicOfficeActivity extends AppCompatActivity {
                 + trace.getMethodName() + " : line " + trace.getLineNumber() + " ]");
     }
 
+    // Create Activity and set up layout
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,27 +85,30 @@ public class AcademicOfficeActivity extends AppCompatActivity {
 
         mHandler = new Handler();
 
-        if (DEBUG) LogcatDebug("SUCCESS",1);
+        if (DEBUG) LogcatDebug("SUCCESS", 1);
     }
 
+    // Run when Activity comes to foreground/is created (after onCreate)
     @Override
     public void onResume() {
         super.onResume();
         // Start updating UI when this Activity is in foreground (started/resumed)
         startRepeatingTask();
 
-        if (DEBUG) LogcatDebug("SUCCESS",1);
+        if (DEBUG) LogcatDebug("SUCCESS", 1);
     }
 
+    // Run when Activity goes to background/is destroyed
     @Override
     public void onPause() {
         super.onPause();
         // Stop updating UI when this Activity is in background
         stopRepeatingTask();
 
-        if (DEBUG) LogcatDebug("SUCCESS",1);
+        if (DEBUG) LogcatDebug("SUCCESS", 1);
     }
 
+    // Create Options menu in upper right corner
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -112,10 +116,10 @@ public class AcademicOfficeActivity extends AppCompatActivity {
         return true;
     }
 
+    // Handle action bar item selection. Home/Up button is automatically
+    // handled, if a parent activity is specified in AndroidManifest.xml.
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item selection. Home/Up button is automatically
-        // handled, if a parent activity is specified in AndroidManifest.xml.
         switch (item.getItemId()) {
             case R.id.item_general_service:
                 text_QueueName.setText(getString(R.string.general_service));
@@ -140,7 +144,7 @@ public class AcademicOfficeActivity extends AppCompatActivity {
 
             default:
                 // Invoke superclass to handle action.
-                if (DEBUG) LogcatDebug("Switch case default",1);
+                if (DEBUG) LogcatDebug("Switch case default", 1);
                 return super.onOptionsItemSelected(item);
         }
     }
@@ -180,7 +184,7 @@ public class AcademicOfficeActivity extends AppCompatActivity {
                 return buffer.toString();
 
             } catch (IOException e) {
-                LogcatDebug("ERROR",2);
+                LogcatDebug("ERROR", 2);
             } finally {
                 if (connection != null) {
                     connection.disconnect();
@@ -190,11 +194,11 @@ public class AcademicOfficeActivity extends AppCompatActivity {
                         reader.close();
                     }
                 } catch (IOException e) {
-                    LogcatDebug("ERROR",2);
+                    LogcatDebug("ERROR", 2);
                 }
             }
 
-            if (DEBUG) LogcatDebug("Did Nothing",2);
+            if (DEBUG) LogcatDebug("Did Nothing", 2);
             return null;
         }
 
@@ -210,12 +214,13 @@ public class AcademicOfficeActivity extends AppCompatActivity {
                 if (DEBUG) LogcatDebug("Response Null", 2);
             } else {
                 try {
+                    // Pull queueItem from the service array
                     JSONObject jObject = (new JSONArray(response)).getJSONObject(queueItem);
 
+                    // Update Views with queue Object content
                     String queueLetter = jObject.getString("queue_short_name");
                     text_LineLetter.setText(queueLetter);
 
-                    // Pulling items from the array
                     try {
                         JSONObject currentPerson = jObject.getJSONObject("current_called_ticket");
                         int currentTicket = currentPerson.getInt("number");
@@ -242,12 +247,12 @@ public class AcademicOfficeActivity extends AppCompatActivity {
                     text_PeopleNumber.setText(String.valueOf(peopleInLine));
 
                     int avgWaitTime = jObject.getInt("average_wait_time");
-                    text_EstWaitingValue.setText(String.valueOf(avgWaitTime/60));
+                    text_EstWaitingValue.setText(String.valueOf(avgWaitTime / 60));
 
-                    if (DEBUG) LogcatDebug("SUCCESS"+queueItem, 2);
+                    if (DEBUG) LogcatDebug("SUCCESS" + queueItem, 2);
 
                 } catch (JSONException e) {
-                    LogcatDebug("ERROR",2);
+                    LogcatDebug("ERROR", 2);
                 }
             }
         }

@@ -29,10 +29,10 @@ public class MainActivity extends AppCompatActivity {
     private Handler mainHandler;
     @SuppressWarnings("FieldCanBeLocal")
     private static int taskDelay = 300000; // in milliseconds
-    private Boolean[] serviceIsIssuing; // service flags
+    private Boolean[] serviceIsIssuing; // service flags. Tells when they are active
 
     /**
-     * Debugger method
+     * Debugger method. Writes to Logcat
      * int trace_levels_up: number of steps up the stack trace to reach class
      */
     private void LogcatDebug(String tag, int trace_levels_up) {
@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 + trace.getMethodName() + " : line " + trace.getLineNumber() + " ]");
     }
 
+    // Create Activity and set up layout
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         if (DEBUG) LogcatDebug("SUCCESS", 1);
     }
 
+    // Run when Activity comes to foreground/is created (after onCreate)
     @Override
     public void onResume() {
         super.onResume();
@@ -68,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         if (DEBUG) LogcatDebug("SUCCESS", 1);
     }
 
+    // Run when Activity goes to background/is destroyed
     @Override
     public void onPause() {
         super.onPause();
@@ -143,11 +146,13 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     JSONArray jArray = new JSONArray((response));
 
+                    // Pull service data from each service Object
+                    // Update service flag
                     for (int i = 0; i < jArray.length(); i++) {
                         JSONObject jObject = jArray.getJSONObject(i);
                         serviceIsIssuing[i] = jObject.getBoolean("is_issuing_tickets");
 
-                        if (DEBUG) LogcatDebug("SUCCESS"+i+":"+serviceIsIssuing[i], 2);
+                        if (DEBUG) LogcatDebug("SUCCESS" + i + ":" + serviceIsIssuing[i], 2);
                     }
 
                 } catch (JSONException e) {
@@ -184,8 +189,8 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setTitle(serviceTitle);
-        Spanned messageNotIssuing = Html.fromHtml(getString(R.string.notissuing_warning) +"<br>"+"<br>"+"<br>"+
-                "<b>"+getString(R.string.schedule)+"</b>");
+        Spanned messageNotIssuing = Html.fromHtml(getString(R.string.notissuing_warning) + "<br>" + "<br>" + "<br>" +
+                "<b>" + getString(R.string.schedule) + "</b>");
         builder.setMessage(messageNotIssuing);
         builder.setPositiveButton("OK", null);
 
