@@ -242,7 +242,7 @@ public class TagusparkActivity extends AppCompatActivity {
                     int avgWaitTime = jObject.getInt("average_wait_time");
                     text_EstWaitingValue.setText(String.valueOf(avgWaitTime / 60));
 
-                    if (DEBUG) LogcatDebug("SUCCESS"+queueItem, 2);
+                    if (DEBUG) LogcatDebug("SUCCESS" + queueItem, 2);
 
                 } catch (JSONException e) {
                     LogcatDebug("ERROR", 2);
@@ -282,7 +282,8 @@ public class TagusparkActivity extends AppCompatActivity {
         // builder.setPositiveButton("OK", null);
 
         // Set custom layout
-        @SuppressLint("InflateParams") final View scheduleLayout = getLayoutInflater().inflate(R.layout.dialog_schedule_tagus, null);
+        @SuppressLint("InflateParams")
+        final View scheduleLayout = getLayoutInflater().inflate(R.layout.dialog_schedule_tagus, null);
         builder.setView(scheduleLayout);
 
         // Create and show the alert dialog
