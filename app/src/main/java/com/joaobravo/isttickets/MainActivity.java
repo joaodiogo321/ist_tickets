@@ -25,7 +25,7 @@ import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static Boolean DEBUG = false;
+    private static Boolean DEBUG = false; // true: enables debugging with LogcatDebug
     private Handler mainHandler;
     @SuppressWarnings("FieldCanBeLocal")
     private static int taskDelay = 300000; // in milliseconds

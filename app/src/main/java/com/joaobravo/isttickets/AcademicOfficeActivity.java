@@ -27,7 +27,7 @@ import java.net.URL;
 
 public class AcademicOfficeActivity extends AppCompatActivity {
 
-    private static Boolean DEBUG = false;
+    private static Boolean DEBUG = false; // true: enables debugging with LogcatDebug
     private Handler mHandler;
     @SuppressWarnings("FieldCanBeLocal")
     private static int taskDelay = 10000; // in milliseconds
