@@ -43,7 +43,7 @@ public class MobilityInternationalActivity extends AppCompatActivity {
     public TextView text_EstWaitingValue;
 
     /**
-     * Debugger method
+     * Debugger method. Writes to Logcat
      * int trace_levels_up: number of steps up the stack trace to reach class
      */
     private void LogcatDebug(String tag, int trace_levels_up) {
@@ -53,6 +53,7 @@ public class MobilityInternationalActivity extends AppCompatActivity {
                 + trace.getMethodName() + " : line " + trace.getLineNumber() + " ]");
     }
 
+    // Create Activity and set up layout
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,6 +88,7 @@ public class MobilityInternationalActivity extends AppCompatActivity {
         if (DEBUG) LogcatDebug("SUCCESS", 1);
     }
 
+    // Run when Activity comes to foreground/is created (after onCreate)
     @Override
     public void onResume() {
         super.onResume();
@@ -96,6 +98,7 @@ public class MobilityInternationalActivity extends AppCompatActivity {
         if (DEBUG) LogcatDebug("SUCCESS", 1);
     }
 
+    // Run when Activity goes to background/is destroyed
     @Override
     public void onPause() {
         super.onPause();
@@ -105,6 +108,7 @@ public class MobilityInternationalActivity extends AppCompatActivity {
         if (DEBUG) LogcatDebug("SUCCESS", 1);
     }
 
+    // Create Options menu in upper right corner
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -112,10 +116,10 @@ public class MobilityInternationalActivity extends AppCompatActivity {
         return true;
     }
 
+    // Handle action bar item selection. Home/Up button is automatically
+    // handled, if a parent activity is specified in AndroidManifest.xml.
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item selection. Home/Up button is automatically
-        // handled, if a parent activity is specified in AndroidManifest.xml.
         switch (item.getItemId()) {
             case R.id.item_outsideeu_athens:
                 text_QueueName.setText(getString(R.string.outside_europe_athens));
@@ -224,12 +228,13 @@ public class MobilityInternationalActivity extends AppCompatActivity {
                 if (DEBUG) LogcatDebug("ERROR", 2);
             } else {
                 try {
+                    // Pull queueItem from the service array
                     JSONObject jObject = (new JSONArray(response)).getJSONObject(queueItem);
 
+                    // Update Views with queue Object content
                     String queueLetter = jObject.getString("queue_short_name");
                     text_LineLetter.setText(queueLetter);
 
-                    // Pulling items from the array
                     try {
                         JSONObject currentPerson = jObject.getJSONObject("current_called_ticket");
                         int currentTicket = currentPerson.getInt("number");

@@ -1,10 +1,12 @@
 <resources>
+    <!-- Main Activity -->
     <string name="app_name">IST Tickets</string>
     <string name="academic_office">Academic Office</string>
     <string name="mobility_international_office">Mobility &amp; International Office</string>
     <string name="taguspark_office">TagusPark Office</string>
     <string name="notissuing_warning">Not issuing tickets at the moment.</string>
 
+    <!-- Schedules Dialogs -->
     <string name="schedules">Schedules</string>
     <string name="monday_friday">Monday–Friday:</string>
     <string name="wednesday">Wednesday:</string>
@@ -17,6 +19,7 @@
     <string name="schedule_taguspark">09H30–16H00</string>
     <string name="closed">Closed</string>
 
+    <!-- About Dialog -->
     <string name="about">About</string>
     <string name="ist_logo">ist_logo</string>
     <string name="meft_logo">meft_logo</string>
@@ -30,6 +33,7 @@
     <string name="tagus_phone">+351 210 407 076</string>
     <string name="tagus_email">academicatagus@tecnico.ulisboa.pt</string>
 
+    <!-- Queue names -->
     <string name="general_service">General Service</string>
     <string name="priority_attendance">Priority Attendance</string>
     <string name="documents">Documents</string>
@@ -40,6 +44,7 @@
     <string name="other_issues">Other Issues (VISA, etc)</string>
     <string name="general_attendance">General Attendance</string>
 
+    <!-- Service Activities -->
     <string name="current_ticket">Current Ticket:</string>
     <string name="desk_no">Desk no:</string>
     <string name="people_in_line">People in Line:</string>
@@ -48,6 +53,7 @@
     <string name="attention_3tt">Attention: 3 ticket tolerance</string>
     <string name="schedule">Schedule</string>
 
+    <!-- API Endpoints -->
     <string name="url_base">https://fenix.tecnico.ulisboa.pt/api/ticketing/services/</string>
     <string name="url_end_ao">1/queues/</string>
     <string name="url_end_mio">2/queues/</string>
