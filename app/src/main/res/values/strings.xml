@@ -10,7 +10,7 @@
     <string name="schedules">Schedules</string>
     <string name="monday_friday">Monday–Friday:</string>
     <string name="wednesday">Wednesday:</string>
-    <string name="tuesday_thursday">Tuesday–Thursday:</string>
+    <string name="tuesday_thursday">Tuesday &amp; Thursday:</string>
     <string name="weekend">Weekend:</string>
     <string name="schedule_mon_fri">09H30–16H30</string>
     <string name="schedule_wed">09H30–19H00</string>
